@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Orbit - Assessment documentation</title><style>*{box-sizing:border-box}body{margin:0;background:#f6f7f9;color:#303743;font:15px/1.7 system-ui,sans-serif}nav{max-width:1000px;margin:28px auto;padding:0 25px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}a{color:#375dfb}section{max-width:1000px;margin:24px auto;padding:46px 58px;background:#fff;border:1px solid #e6e9ef;border-radius:12px}.eyebrow{font-size:10px;letter-spacing:1.5px;color:#8d96a6}h1{font-size:31px;line-height:1.2;margin:12px 0 27px}h2{font-size:17px;color:#333d4d;margin:27px 0 8px}p{color:#657083}.lead{font-size:23px;color:#375dfb;font-weight:600}.bullet{padding-left:17px;position:relative}.bullet:before{content:'•';position:absolute;left:0;color:#375dfb}figure{margin:25px 0}img{width:100%;border:1px solid #e5e9f0;border-radius:9px}figcaption{font-size:11px;color:#8d96a6}@media(max-width:650px){section{margin:12px;padding:27px 23px}h1{font-size:26px}}@media print{body{background:white}nav{display:none}section{border:0;page-break-before:always;margin:0;padding:0;border-radius:0;max-width:none}section:first-of-type{page-break-before:auto}img{max-height:340px;object-fit:contain}}</style></head><body><nav><strong>Orbit / Assessment handoff</strong><div><a href="Orbit-Assessment-Documentation.pdf">Download PDF</a> &nbsp; <a href="https://orbit-ai-setup-assistant-aristote.netlify.app">Open prototype</a></div></nav><section><div class="eyebrow">01 / ASSESSMENT DOCUMENTATION</div><h1>Product rationale</h1>
+<p class="lead">Orbit - AI Project Setup Assistant</p>
+<p>Assessment documentation | 18 October 2026 | Working prototype and design rationale</p>
+<h2>Problem and intended outcome</h2>
+<p>Project managers need to turn a short brief into a usable project structure without accepting incorrect automated suggestions. Orbit gives them a proposed name, template and tasks, then lets them shape and approve the plan before creating anything.</p>
+<h2>Core principle: AI proposes. Humans decide.</h2>
+<p>The supplied conversation describes an assistant that may be correct only around 70% of the time. This is an assessment constraint from the conversation, not a measured result for this prototype. The design therefore makes review explicit and does not display invented confidence scores.</p>
+<h2>Primary task flow</h2>
+<p class="bullet">Describe: enter a brief or choose an example. A separate blank-project route requires only a name.</p>
+<p class="bullet">Review: accept, edit, remove or restore the proposed name, template and tasks. Accepted and edited items enter the included-plan preview.</p>
+<p class="bullet">Confirm: inspect the final included plan, then explicitly create it. Creation is blocked while suggestions remain unreviewed or no name is included.</p>
+<p class="bullet">Continue working: open saved projects, add or edit tasks, mark tasks complete and export a JSON copy.</p>
+<h2>Scope and assumptions</h2>
+<p>This is a frontend assessment prototype. Suggestions use deterministic local rules, not a live AI model. Projects and drafts stay in this browser. There is no authentication, server database, shared workspace or collaboration. The original assessment document and submission rubric were not available for this documentation pass; verify the final package against them before hand-in.</p>
+</section><section><div class="eyebrow">02 / ASSESSMENT DOCUMENTATION</div><h1>Interaction decisions</h1>
+<h2>Preserve the system; adapt the workflow</h2>
+<p>The first coded version copied the Verification workspace too literally. A narrow central column, repeated project details and duplicate primary actions fragmented a sequential creation task. User feedback prompted a correction: retain the reference typography, rail, icons, borders and AlignUI controls, while using a wider working area and a contextual side preview.</p>
+<p class="bullet">One primary action per step reduces competing paths. The blank route remains an alternative at entry, rather than a repeated side-panel action.</p>
+<p class="bullet">Compact suggestion rows make the whole plan easier to scan. Explicit text states supplement accept, edit and remove icons.</p>
+<p class="bullet">The preview contains only included items. Pending and removed items do not silently become part of the project.</p>
+<p class="bullet">Bulk acceptance affects pending suggestions only. Existing edits and removals remain intact.</p>
+<p class="bullet">Dates start unset. Users add dates deliberately; the prototype does not infer commitments from vague timing.</p>
+<p class="bullet">Returning to the brief preserves the reviewed plan. Replacing it with a new generation requires an explicit choice. Final confirmation remains separate from generation.</p>
+<figure><img src="../ux-audit/04-corrected-review.png" alt="Corrected Orbit review flow"><figcaption>Corrected review flow: wider working area and included-item preview.</figcaption></figure>
+<p>Tradeoff: mandatory review adds effort. The hypothesis is that this effort is justified when suggestion reliability is limited. A usability study should check whether users understand and complete the review without blindly accepting everything.</p>
+</section><section><div class="eyebrow">03 / ASSESSMENT DOCUMENTATION</div><h1>Design system and accessibility</h1>
+<h2>System reuse and provenance</h2>
+<p>The coded interface reuses the supplied Verification-RSSB project: AlignUI v1.2 Fancy Button, Input, Textarea and Checkbox implementations, the Hugeicons wrapper, Figma-exported SVG assets, and bundled Certia/Cloister fonts. These are reused assets and controls, not an original component library created for Orbit.</p>
+<p class="bullet">Fancy Button: primary, basic, neutral, destructive and success styles, with shared focus and disabled behavior. Orbit mainly uses primary and basic actions.</p>
+<p class="bullet">Input and Textarea: labeled controlled text entry; native date fields in edit dialogs. Checkbox: Radix-based task completion control.</p>
+<p class="bullet">Suggestion rows: product-specific composition in App.tsx, with pending, accepted, edited and dismissed states. This is not a separately published library component.</p>
+<p class="bullet">Core coded colors: interaction #375DFB; border #EBEBEB; body text #333333; secondary text #6C717A. Semantic green, amber and red communicate status alongside text.</p>
+<h2>Accessibility measures present in the implementation</h2>
+<p class="bullet">Visible field labels and accessible names for icon actions. Text labels distinguish review states rather than relying only on color.</p>
+<p class="bullet">Native dialog behavior for modal containment and Escape dismissal; semantic form submission; visible keyboard focus rules.</p>
+<p class="bullet">Loading and toast messages use live status semantics; validation errors use alert semantics. Reduced-motion CSS is included.</p>
+<p class="bullet">Responsive reflow was checked at 390px and 320px during prototype work; the revised review/confirmation layout was rechecked at 390px.</p>
+<h2>Checks still required</h2>
+<p>No full WCAG compliance claim is made. Measure text/control contrast, test icon target sizes and 200%/400% zoom, and run a complete keyboard and screen-reader pass. Check focus after step transitions, disabled-action explanations and announcement timing. Figma variable bindings, component variants, auto layout and documentation still need a separate final file inspection against the assessment rubric.</p>
+</section><section><div class="eyebrow">04 / ASSESSMENT DOCUMENTATION</div><h1>Validation and evaluation plan</h1>
+<h2>Completed technical and interaction checks</h2>
+<p class="bullet">Strict TypeScript check and production build pass. The public Netlify page loaded and produced the seven-item supplier-review plan without captured console errors during the deployment check.</p>
+<p class="bullet">Desktop browser checks covered editing a task title and date, removing a suggestion, accepting remaining items and creating the approved project.</p>
+<p class="bullet">The included preview excludes removed tasks. Restoring an item returns it to pending and blocks continuation until reviewed. Final confirmation has one Create project action.</p>
+<p class="bullet">Local draft persistence, saved-project navigation and task completion were checked. Mobile blank-project creation was checked at 390px.</p>
+<p class="bullet">Three automated model regressions pass: a blank project excludes a previously reviewed plan; reviewed creation includes only accepted/edited items and preserves dates; generated items begin pending with no invented dates.</p>
+<h2>Issue found during documentation</h2>
+<p>A blank project could inherit accepted suggestions from an earlier plan. The project conversion now treats the blank route separately, returning only the entered name with an empty description, template and task list. A regression test covers that carryover scenario. A browser check also confirmed that switching from an accepted seven-item plan creates a blank project with zero tasks and no inherited template or brief.</p>
+<h2>Proposed usability study - not yet conducted</h2>
+<p>Recruit 4-5 people who regularly organize team projects. Ask them to create a supplier review, correct an unsuitable task, remove an unwanted suggestion, set one date and create the project. Then ask them to create a blank project and return to a saved project. Use neutral prompts; avoid telling them which controls to use.</p>
+<p class="bullet">Observe completion without assistance, mistaken inclusions, missed pending items, hesitation at the primary action, and understanding of what will be created.</p>
+<p class="bullet">Record time from brief to confirmed project, review corrections, and confidence in the final plan. Do not treat acceptance rate alone as success; effortless acceptance can hide low-quality review.</p>
+<p>No participant research, completion-rate improvement, time-saving percentage or model-accuracy result is claimed. Network failure recovery and backend creation errors are not implemented because there is no backend.</p>
+</section><section><div class="eyebrow">05 / ASSESSMENT DOCUMENTATION</div><h1>AI usage log and limitations</h1>
+<h2>What AI assisted with</h2>
+<p>Codex assisted with assessment interpretation, flow proposals, Figma work in the earlier collaboration, reuse of the supplied React components, the coded prototype, debugging, browser checks, the UX critique, deployment and this documentation. This is a retrospective summary of visible collaboration, not a timestamped transcript of every prompt or a complete Figma activity audit.</p>
+<h2>Human direction and review</h2>
+<p>The user supplied the Orbit and Align design-system references, requested reuse of the Verification project code and visual language, rejected the initial visual mismatch, identified that the adapted UX felt wrong, and authorized repository creation and deployment. Those interventions shaped both the visual constraints and the later workflow correction.</p>
+<h2>Corrections made during collaboration</h2>
+<p class="bullet">A generic onboarding treatment was replaced with the supplied Verification visual language.</p>
+<p class="bullet">A literal three-column copy was later revised after UX feedback: wider review area, one primary action, project identity and an included-item preview.</p>
+<p class="bullet">Date editing was checked and adjusted to read the submitted date reliably. Regeneration now protects reviewed work, and blank-project carryover has a regression fix.</p>
+<h2>Prototype behavior versus AI assistance</h2>
+<p>The design/build process used AI assistance. The shipped assistant itself does not call an AI model: propose() selects local templates using keywords for review, launch, event or general projects. Generic reviews currently share the supplier-review template, so irrelevant suggestions are possible. This limitation must remain visible in a demonstration.</p>
+<h2>Known limits and next work</h2>
+<p class="bullet">No calibrated confidence, retrieval, external context, authentication, cloud sync, permissions or collaboration.</p>
+<p class="bullet">Browser storage can be cleared or unavailable. JSON export is provided; it is not a shared project or an import/restore feature.</p>
+<p class="bullet">A production version needs a server-side generation API, validated structured output, real error/retry behavior, durable storage, permission handling and end-to-end tests.</p>
+<p>Review this log before submitting it in your name. Retain the distinction between reused source work, AI-assisted implementation, user decisions and checks that have not been performed.</p>
+</section><section><div class="eyebrow">06 / ASSESSMENT DOCUMENTATION</div><h1>Submission and walkthrough</h1>
+<h2>Primary links</h2>
+<p><a href="https://orbit-ai-setup-assistant-aristote.netlify.app">Live coded prototype</a></p>
+<p><a href="https://github.com/Aristote-code/orbit-ai-setup-assistant">Source repository (private)</a></p>
+<p><a href="https://www.figma.com/design/3RVIREWeSeTFGemV9qthWN/Orbit">Orbit Figma assessment file</a></p>
+<h2>Suggested 3-minute walkthrough</h2>
+<p class="bullet">0:00-0:30 - State the problem and principle: managers need speed without losing control over uncertain suggestions.</p>
+<p class="bullet">0:30-1:20 - Enter a supplier-review brief. Show pending suggestions, edit a task/date, remove one item and accept the remaining items. Explain how the preview reflects only included work.</p>
+<p class="bullet">1:20-2:10 - Show the final plan, explicitly create it, complete a task and export the project. Point out that dates and scope remain user decisions.</p>
+<p class="bullet">2:10-3:00 - Show the blank route, explain the reuse of AlignUI/Verification assets, describe the UX correction, and disclose local generation/storage and remaining validation.</p>
+<h2>Before submitting</h2>
+<p class="bullet">Check the original brief for required formats, time limits, screen counts, states and evaluation criteria. The referenced 3.5-hour estimate is not a verified time record for this work.</p>
+<p class="bullet">Verify that the assessor can open Figma and the live site. The GitHub repository is private; grant access only if the submission requires source review.</p>
+<p class="bullet">Inspect Figma variables, semantic aliases, component variants, responsive frames and prototype links. This pack does not certify their current completeness.</p>
+<p class="bullet">Review the AI usage log and wording so the submission accurately represents your contribution. Include the rationale, source references, limitations and validation plan.</p>
+<p>Package status: prepared for your review. It is not submitted to an assessor, and final compliance with the original brief remains unverified.</p>
+</section></body></html>

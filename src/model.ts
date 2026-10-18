@@ -117,6 +117,16 @@ export function propose(prompt: string): Suggestion[] {
   ];
 }
 export function toProject(draft: Draft): Project {
+  if (draft.step === "blank") {
+    return {
+      id: crypto.randomUUID(),
+      name: draft.blankName.trim() || "Untitled project",
+      description: "",
+      template: "",
+      tasks: [],
+      created: new Date().toISOString(),
+    };
+  }
   const included = draft.suggestions.filter(
     (s) => s.status === "accepted" || s.status === "edited",
   );

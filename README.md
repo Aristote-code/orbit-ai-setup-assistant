@@ -66,3 +66,12 @@ netlify deploy --prod
 ```
 
 The initial deployment uses the Netlify CLI. GitHub automatic deployments are not configured.
+
+## Assessment handoff
+
+- [Read the assessment documentation](https://orbit-ai-setup-assistant-aristote.netlify.app/assessment/)
+- [Download the six-page PDF](docs/assessment/Orbit-Assessment-Documentation.pdf)
+- Editable source: `docs/assessment/content.json`. Regenerate HTML/PDF with `docs/assessment/build.py` using the dependencies in its `requirements.txt`. Copy the two outputs to `public/assessment/` before deploying changes.
+- Run `npm test` for the three model regressions (Node 22.18+), and `npm run build` for TypeScript/production checks.
+
+The documentation is a review draft. The original assessment brief, final Figma structure and assessor access still need confirmation before submission.
