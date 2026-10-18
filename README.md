@@ -11,7 +11,9 @@ npm run build
 npm run preview
 ```
 
-The local preview created during development runs at http://127.0.0.1:5181/.
+Live prototype: [orbit-ai-setup-assistant-aristote.netlify.app](https://orbit-ai-setup-assistant-aristote.netlify.app).
+
+Repository: [Aristote-code/orbit-ai-setup-assistant](https://github.com/Aristote-code/orbit-ai-setup-assistant).
 
 ## Included
 
@@ -53,3 +55,14 @@ Production build and strict TypeScript checking pass. Browser checks cover local
 ## UX refinement
 
 After feedback that the literal verification layout did not suit project setup, the creation flow now uses a wider working area and a contextual preview, with one primary action per step. Reviewed edits are protected when regenerating. See `docs/ux-audit/audit-report.html` for captured findings.
+
+## Deployment
+
+The production site is hosted on Netlify. Build settings are in `netlify.toml`.
+
+```sh
+netlify link --id 2a8dd29d-7dfd-4e7a-a0a4-1707df5c0fea
+netlify deploy --prod
+```
+
+The initial deployment uses the Netlify CLI. GitHub automatic deployments are not configured.
