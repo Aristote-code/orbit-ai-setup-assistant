@@ -348,7 +348,7 @@
       ],
       [
         "b",
-        "Inspect Figma variables, semantic aliases, component variants, responsive frames and prototype links. This pack does not certify their current completeness."
+        "The original chat recap calls for six card states (Loading, Suggested, Editing, Accepted, Dismissed/Undo, Error), four desktop/mobile screens and two purposeful animations with duration, easing and reduced-motion notes. Verify these in Figma; this pack does not certify them."
       ],
       [
         "b",
@@ -357,6 +357,92 @@
       [
         "p",
         "Package status: prepared for your review. It is not submitted to an assessor, and final compliance with the original brief remains unverified."
+      ]
+    ]
+  ],
+  [
+    "07",
+    "Concise submission notes",
+    [
+      [
+        "h",
+        "Component notes - five lines"
+      ],
+      [
+        "b",
+        "Reuse AlignUI buttons, inputs, textareas and checkboxes from the supplied system."
+      ],
+      [
+        "b",
+        "Suggestion rows expose pending, accepted, edited and dismissed states; edits use a dialog."
+      ],
+      [
+        "b",
+        "Use explicit labels and review-state text alongside action icons and semantic colors."
+      ],
+      [
+        "b",
+        "Include accepted/edited items only; preserve edits during bulk acceptance and allow restoration."
+      ],
+      [
+        "b",
+        "Verify Figma loading/error variants, long-text handling and missing explanations separately."
+      ],
+      [
+        "h",
+        "Client explanation - five lines"
+      ],
+      [
+        "b",
+        "Orbit turns a brief into a proposed project name, template and task list."
+      ],
+      [
+        "b",
+        "The manager reviews the proposal and controls every included detail."
+      ],
+      [
+        "b",
+        "Accept, edit, remove and restore actions support correction before creation."
+      ],
+      [
+        "b",
+        "A blank-project route and explicit final confirmation preserve choice and control."
+      ],
+      [
+        "b",
+        "This demo uses local rules and browser storage; production AI and cloud services are future work."
+      ],
+      [
+        "h",
+        "AI usage log - six retrospective entries"
+      ],
+      [
+        "b",
+        "1. Framing: Codex helped interpret the shared context and propose the human-review flow. The original brief remains unverified."
+      ],
+      [
+        "b",
+        "2. System reuse: Codex inspected and reused supplied Verification/AlignUI code and assets rather than claiming an original library."
+      ],
+      [
+        "b",
+        "3. Implementation: Codex produced the React flow, demo generator, persistence and editing behavior; no live AI model is connected."
+      ],
+      [
+        "b",
+        "4. Iteration: user feedback corrected visual mismatch and a literal three-column copy. Codex revised layout, action hierarchy and preview."
+      ],
+      [
+        "b",
+        "5. Verification: Codex ran builds, browser checks and model regressions, and fixed date submission and blank-project carryover. No participant study was run."
+      ],
+      [
+        "b",
+        "6. Handoff: Codex prepared this rationale, limitations and walkthrough, pushed source to GitHub and deployed the prototype. The user must review before submission."
+      ],
+      [
+        "p",
+        "The one-page product rationale is page 1. These concise notes reflect the prior chat recap, not an independently authenticated assessment rubric."
       ]
     ]
   ]
