@@ -1,0 +1,449 @@
+@font-face {
+  font-family: "Certia";
+  src: url("/fonts/Certia-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Certia";
+  src: url("/fonts/Certia-Medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Certia";
+  src: url("/fonts/Certia-SemiBold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Certia";
+  src: url("/fonts/Certia-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cloister Black";
+  src: url("/fonts/CloisterBlack.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+/* AlignUI Fancy Button v1.2 */
+.fancy-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  gap: 12px;
+  padding-inline: 14px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Certia", Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.072px;
+  white-space: nowrap;
+  outline: none;
+  transition:
+    background-color 0.2s ease-out,
+    color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+.fancy-button--medium {
+  height: 40px;
+}
+.fancy-button--small {
+  height: 36px;
+  padding-inline: 12px;
+  border-radius: 8px;
+}
+.fancy-button--xsmall {
+  height: 32px;
+  padding-inline: 10px;
+  border-radius: 8px;
+}
+.fancy-button__icon {
+  position: relative;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  margin-inline: -4px;
+  display: grid;
+  flex: none;
+  place-items: center;
+}
+.fancy-button--neutral {
+  background: #171717;
+  box-shadow:
+    0 1px 2px rgba(27, 28, 29, 0.48),
+    0 0 0 1px #242628;
+}
+.fancy-button--primary {
+  background: #335cff;
+  box-shadow:
+    0 1px 2px rgba(14, 18, 27, 0.24),
+    0 0 0 1px #335cff;
+}
+.fancy-button--destructive {
+  background: #fb3748;
+  box-shadow:
+    0 1px 2px rgba(14, 18, 27, 0.24),
+    0 0 0 1px #fb3748;
+}
+.fancy-button--success {
+  background: #1fc16b;
+  box-shadow:
+    0 1px 2px rgba(14, 18, 27, 0.24),
+    0 0 0 1px #1fc16b;
+}
+.fancy-button--filled::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  pointer-events: none;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+.fancy-button--filled::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(to bottom, #fff, transparent);
+  opacity: 0.16;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
+}
+.fancy-button--basic {
+  color: #5c5c5c;
+  background: #fff;
+  box-shadow:
+    0 1px 3px rgba(14, 18, 27, 0.12),
+    0 0 0 1px #ebebeb;
+}
+.fancy-button:hover::after {
+  opacity: 0.24;
+}
+.fancy-button--basic:hover {
+  color: #171717;
+  background: #f7f7f7;
+  box-shadow: none;
+}
+.fancy-button:focus-visible {
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px rgba(55, 93, 251, 0.35);
+}
+.fancy-button:disabled {
+  color: #d1d1d1;
+  background: #f7f7f7;
+  box-shadow: none;
+  pointer-events: none;
+}
+.fancy-button:disabled::before,
+.fancy-button:disabled::after {
+  display: none;
+}
+/* AlignUI Input v1.2 */
+.align-input-root {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  color: #24282d;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgba(20, 24, 31, 0.06),
+    inset 0 0 0 1px #dfe1e4;
+  transition:
+    background 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+.align-input-root:hover:not(:focus-within) {
+  box-shadow: inset 0 0 0 1px transparent;
+}
+.align-input-root:focus-within {
+  box-shadow:
+    0 0 0 1px #1f252c,
+    0 0 0 4px rgba(55, 93, 251, 0.13);
+}
+.align-input-root.has-error {
+  box-shadow: inset 0 0 0 1px #fb3748;
+}
+.align-input-root.has-error:focus-within {
+  box-shadow:
+    0 0 0 1px #fb3748,
+    0 0 0 4px rgba(251, 55, 72, 0.13);
+}
+.align-input-wrapper {
+  min-width: 0;
+  width: 100%;
+  padding-inline: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: text;
+  transition: background 0.2s ease-out;
+}
+.align-input-wrapper:hover:not(:focus-within) {
+  background: #f7f8fa;
+}
+.align-input {
+  min-width: 0;
+  width: 100%;
+  color: #24282d;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: "Certia", Inter, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+.align-input::placeholder {
+  color: #a2a7ae;
+  transition: color 0.2s ease-out;
+}
+.align-input-wrapper:hover .align-input::placeholder,
+.align-input:focus::placeholder {
+  color: #6e747b;
+}
+.align-input:disabled {
+  color: #c5c9ce;
+}
+.align-input-icon {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  flex: none;
+  place-items: center;
+  color: #747981;
+}
+.align-input-affix {
+  padding-inline: 12px;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  color: #747981;
+  border-left: 1px solid #e4e5e6;
+  background: #fff;
+  font-size: 13px;
+}
+.align-input-root--medium .align-input {
+  height: 40px;
+}
+.align-input-root--small {
+  border-radius: 8px;
+}
+.align-input-root--small .align-input {
+  height: 36px;
+}
+.align-input-root--small .align-input-wrapper {
+  padding-inline: 10px;
+}
+.align-input-root--xsmall {
+  border-radius: 8px;
+}
+.align-input-root--xsmall .align-input {
+  height: 32px;
+}
+.align-input-root--xsmall .align-input-wrapper {
+  padding-inline: 8px;
+  gap: 6px;
+}
+
+/* AlignUI Textarea v1.2 */
+.align-textarea {
+  width: 100%;
+  min-height: 82px;
+  padding: 10px 10px 10px 12px;
+  display: block;
+  resize: none;
+  color: #24282d;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: "Certia", Inter, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.align-textarea--simple {
+  min-height: 112px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgba(20, 24, 31, 0.06),
+    inset 0 0 0 1px #dfe1e4;
+  transition:
+    background 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+.align-textarea--simple:hover:not(:focus) {
+  background: #f7f8fa;
+  box-shadow: none;
+}
+.align-textarea--simple:focus {
+  background: #fff;
+  box-shadow:
+    0 0 0 1px #1f252c,
+    0 0 0 4px rgba(55, 93, 251, 0.13);
+}
+.align-textarea.has-error {
+  box-shadow: inset 0 0 0 1px #fb3748;
+}
+.align-textarea.has-error:focus {
+  box-shadow:
+    0 0 0 1px #fb3748,
+    0 0 0 4px rgba(251, 55, 72, 0.13);
+}
+.align-textarea::placeholder {
+  color: #a2a7ae;
+  transition: color 0.2s ease-out;
+}
+.align-textarea:hover::placeholder,
+.align-textarea:focus::placeholder {
+  color: #6e747b;
+}
+
+/* AlignUI Select v1.2 anatomy, rendered with the Zemo token palette. */
+.align-select-trigger {
+  width: 100%;
+  height: 40px;
+  min-width: 0;
+  padding: 0 10px 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #33373d;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgba(20, 24, 31, 0.04),
+    inset 0 0 0 1px #dfe1e4;
+  outline: none;
+  font-family: "Certia", Inter, sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: left;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+.align-select-trigger:hover {
+  background: #f8f9fb;
+  box-shadow: 0 1px 2px rgba(20, 24, 31, 0);
+}
+.align-select-trigger:focus-visible,
+.align-select-trigger[data-state="open"] {
+  color: #24282d;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px #1f252c,
+    0 0 0 4px rgba(55, 93, 251, 0.13);
+}
+/* AlignUI Checkbox v1.2 */
+.align-checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+.align-checkbox-visual {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  flex: none;
+  place-items: center;
+  color: #fff;
+}
+.align-checkbox-visual > svg:first-child {
+  display: block;
+}
+.align-checkbox-outer {
+  fill: #e1e4e8;
+  transition: fill 0.2s ease-out;
+}
+.align-checkbox-inner {
+  fill: #fff;
+  transition: opacity 0.2s ease-out;
+}
+.align-checkbox-check,
+.align-checkbox-indeterminate {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease-out;
+}
+.align-checkbox:hover .align-checkbox-outer,
+.align-dropdown-checkbox-item:hover .align-checkbox-outer {
+  fill: #cfd3d8;
+}
+.align-checkbox[data-state="checked"] .align-checkbox-outer,
+.align-checkbox[data-state="indeterminate"] .align-checkbox-outer,
+.align-dropdown-checkbox-item[data-state="checked"] .align-checkbox-outer {
+  fill: #375dfb;
+}
+.align-checkbox[data-state="checked"] .align-checkbox-inner,
+.align-checkbox[data-state="indeterminate"] .align-checkbox-inner,
+.align-dropdown-checkbox-item[data-state="checked"] .align-checkbox-inner {
+  opacity: 0;
+}
+.align-checkbox[data-state="checked"] .align-checkbox-check,
+.align-dropdown-checkbox-item[data-state="checked"] .align-checkbox-check {
+  opacity: 1;
+}
+.align-checkbox[data-state="indeterminate"] .align-checkbox-indeterminate {
+  opacity: 1;
+}
+.align-checkbox[data-state="checked"]:hover .align-checkbox-outer,
+.align-dropdown-checkbox-item[data-state="checked"]:hover
+  .align-checkbox-outer {
+  fill: #2f55e7;
+}
+.align-checkbox:focus-visible {
+  border-radius: 5px;
+  box-shadow: 0 0 0 3px rgba(55, 93, 251, 0.18);
+}
+.align-checkbox:disabled {
+  pointer-events: none;
+}
+.align-checkbox:disabled .align-checkbox-outer {
+  fill: #e1e4e8;
+}
